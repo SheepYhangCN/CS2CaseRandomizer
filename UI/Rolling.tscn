@@ -1,0 +1,253 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnhj8cm3y0ysy"]
+
+[ext_resource type="FontFile" uid="uid://tvmqd5r7ary5" path="res://Assets/Fonts/NotoSans.otf" id="1_446lg"]
+[ext_resource type="Script" path="res://UI/Rolling.cs" id="1_kftra"]
+[ext_resource type="AudioStream" uid="uid://b6c6cec76ehp7" path="res://Assets/Sounds/case_scroll.wav" id="3_2qa2a"]
+[ext_resource type="Texture2D" uid="uid://5u53dbctsis4" path="res://Assets/Textures/Round.png" id="3_63q8e"]
+
+[sub_resource type="Theme" id="Theme_cdh76"]
+default_font = ExtResource("1_446lg")
+default_font_size = 32
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_byxuq"]
+light_mode = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_62bb1"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="Animation" id="Animation_8np4w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oj5rj"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_igcha"]
+_data = {
+"RESET": SubResource("Animation_8np4w"),
+"fade_in": SubResource("Animation_oj5rj")
+}
+
+[node name="Rolling" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cdh76")
+script = ExtResource("1_kftra")
+
+[node name="GrayBG" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="GrayBG" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+theme = SubResource("Theme_cdh76")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1900.0
+offset_bottom = 1060.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Top" type="Control" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="UnlockContainer" type="Label" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "locUnlockContainer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnlockCase" type="RichTextLabel" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]locUnlockCase[/center]"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 750)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.85, 0.85, 0.85, 1)
+custom_minimum_size = Vector2(1440, 260)
+layout_mode = 2
+mouse_filter = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Control2" type="Control" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Bottom" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Skip" type="Button" parent="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/Bottom"]
+layout_mode = 2
+text = "locSkip"
+
+[node name="Outline" type="ColorRect" parent="SubViewportContainer/SubViewport/Control"]
+layout_mode = 1
+offset_left = 934.0
+offset_top = 418.0
+offset_right = 946.0
+offset_bottom = 742.0
+color = Color(0, 0, 0, 1)
+
+[node name="Line" type="ColorRect" parent="SubViewportContainer/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 936.0
+offset_top = 420.0
+offset_right = 944.0
+offset_bottom = 740.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -280.0
+offset_right = 280.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+material = SubResource("CanvasItemMaterial_byxuq")
+layout_mode = 0
+offset_left = -875.0
+offset_top = -405.0
+offset_right = 1045.0
+offset_bottom = 675.0
+scale = Vector2(1.25, 1.25)
+texture = SubResource("ViewportTexture_62bb1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Control"]
+position = Vector2(300, 300)
+energy = 0.0
+texture = ExtResource("3_63q8e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2qa2a")
+max_polyphony = 100
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_igcha")
+}
+
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/Bottom/Skip" to="." method="_on_skip_pressed"]

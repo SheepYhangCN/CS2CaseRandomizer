@@ -1,0 +1,204 @@
+[gd_scene load_steps=14 format=3 uid="uid://45gsa6eerkch"]
+
+[ext_resource type="VideoStream" path="res://Assets/bg-nuke.ogv" id="1_h4h0u"]
+[ext_resource type="Script" path="res://Main.cs" id="1_j2nqn"]
+[ext_resource type="FontFile" uid="uid://tvmqd5r7ary5" path="res://Assets/Fonts/NotoSans.otf" id="3_v6amo"]
+[ext_resource type="AudioStream" uid="uid://bi6imh0y0q2q8" path="res://Assets/Sounds/case_drop.wav" id="4_ho10y"]
+[ext_resource type="PackedScene" uid="uid://bfqm6x8v3tbfg" path="res://Assets/Models/Case/Body.tscn" id="4_m4oej"]
+[ext_resource type="PackedScene" uid="uid://dkl42bwbmqp3k" path="res://Assets/Models/Case/Top.tscn" id="5_p0iv5"]
+[ext_resource type="PackedScene" uid="uid://cl7j7iyl4pr2r" path="res://Assets/Models/Case/Fastener.tscn" id="6_ft716"]
+[ext_resource type="PackedScene" uid="uid://c2ccdpbqaoodb" path="res://Assets/Models/Case/Lock.tscn" id="7_kdd1a"]
+[ext_resource type="Animation" uid="uid://by1dbimgrc5uh" path="res://CaseUnlockAnimation.res" id="8_2wpke"]
+
+[sub_resource type="Theme" id="Theme_61o2o"]
+default_font = ExtResource("3_v6amo")
+default_font_size = 32
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8tqfo"]
+viewport_path = NodePath("Background/SubViewport")
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_asbub"]
+_data = {
+"unlock": ExtResource("8_2wpke")
+}
+
+[sub_resource type="Environment" id="Environment_lpbpn"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = SubResource("Theme_61o2o")
+script = ExtResource("1_j2nqn")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -960.0
+offset_bottom = -536.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+stream = ExtResource("1_h4h0u")
+autoplay = true
+loop = true
+
+[node name="GrayBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.25098)
+
+[node name="Case" type="Sprite2D" parent="."]
+position = Vector2(480, 60)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_8tqfo")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Top" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/Top"]
+layout_mode = 2
+text = "locSettings"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="UnlockContainer" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "locUnlockContainer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnlockCase" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]locUnlockCase[/center]"
+fit_content = true
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "locContainsFollowing"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Bottom" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Unlock" type="Button" parent="MarginContainer/VBoxContainer/Bottom"]
+layout_mode = 2
+text = "locUnlock"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/Bottom"]
+layout_mode = 2
+text = "locQuit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ho10y")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="Case_Btm_CSGO_Case_Btm_0" parent="Background" instance=ExtResource("4_m4oej")]
+
+[node name="Sprite3D" type="Sprite3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1.05)
+
+[node name="Case_Top_CSGO_Case_Top_0" parent="Background" instance=ExtResource("5_p0iv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -1)
+
+[node name="Fastener_CSGO_Case_Btm_0" parent="Background" instance=ExtResource("6_ft716")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019, 1.5, 1.1)
+
+[node name="Lock_CSGO_Case_Top_0" parent="Background" instance=ExtResource("7_kdd1a")]
+transform = Transform3D(0.0866025, 0, 0.05, 0, 0.1, 0, -0.05, 0, 0.0866025, 1.625, 1.35, 1.05)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+libraries = {
+"": SubResource("AnimationLibrary_asbub")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Background"]
+environment = SubResource("Environment_lpbpn")
+
+[node name="SubViewport" type="SubViewport" parent="Background"]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Camera3D" type="Camera3D" parent="Background/SubViewport"]
+transform = Transform3D(0.92388, -0.0333531, 0.381227, 0, 0.996195, 0.0871557, -0.382683, -0.0805214, 0.920364, 1.825, 1.852, 4.118)
+fov = 60.0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Top/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Bottom/Unlock" to="." method="_on_unlock_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Bottom/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,27 @@
+keys,en,zh_CN,zh_TW
+locLanguageName,English,中文（简体）,中文（繁體）
+locSettings, Settings , 设置 , 設定 
+locLanguage,Language ,语言 ,語言 
+locWindowMode,Window Mode ,窗口模式 ,視窗模式 
+locWindowed,Windowed,窗口化,視窗化
+locFullscreen,Fullscreen,全屏,全熒幕
+locImport,Import Custom Case,导入自定义箱子,匯入自訂箱子
+locBack,Save & Back,保存并返回,儲存并返回
+locUnlockContainer,Unlock Container,开箱,開箱
+locUnlock, Unlock , 开启 , 打開 
+locUnlockCase,Unlock {Case},开启 {Case},打開 {Case}
+locKey,{Case} Key,{Case} 钥匙,{Case} 鑰匙
+locUse,Use {Key},使用 {Key},使用 {Key}
+locClose, Close , 关闭, 關閉 
+locQuit, Quit , 退出 , 退出 
+locSkip, Skip , 跳过 , 跳過 
+locContainsFollowing,Contains one of the following: ,包含下列物品之一：,包含下列物品之一：
+locConsumer,Consumer Grade,消费级,消費級
+locMilSpec,Mil-Spec Grade,军工级,軍工級
+locIndustrial,Industrial Grade,工业级,工業級
+locRestricted,Restricted,管制级,管制級
+locClassified,Classified,机密级,機密級
+locCovert,Covert,隐蔽级,隱蔽級
+locRareSpecialItem,★ Rare Special Item ★,★ 罕见的特殊物品 ★,★ 特殊稀有物品 ★
+locDisclaimer,"Counter-Strike 2 is an original game by Valve,\nthis program is NOT affiliated with Valve or Steam.\nSource code is open for public on Github.",《反恐精英 2 / 反恐精英：全球攻势》是一款 Valve 的原创游戏，\n此程序「不」隶属于 Valve、Steam、完美世界 或 蒸汽平台。\n源代码在 Github 上公开。,《絕對武力 2》是一款 Valve 的原創遊戲，\n此程式「不」隸屬於 Valve 或 Steam。\n源程式碼在 Github 上公開。
+locCredits,"CREDITS\nMade By SheepYhangCN\n\nUSED THIHGS\nCS:GO Case - artfreex\nEasingFunctions.cs - Kryzarel\nGDTask.Nuget - DE-YU\nSheepYhangCN.RandomExtension - SheepYhangCN\nGodot Engine - Juan Linietsky, Ariel Manzur and contributors\n.NET SDK - Microsoft\nVisual Studio Code - Microsoft\nNoto Sans CJK - Google\nCS2/CS:GO Assets - Valve","「鸣谢名单」\n由 憨憨羊の宇航鸽鸽 制作\n\n「外部借物」\nCS:GO Case - artfreex\nEasingFunctions.cs - Kryzarel\nGDTask.Nuget - DE-YU\nSheepYhangCN.RandomExtension - 憨憨羊の宇航鸽鸽\nGodot Engine - Juan Linietsky, Ariel Manzur 和贡献者们\n.NET SDK - Microsoft\nVisual Studio Code - Microsoft\nNoto Sans CJK - Google\n\nCS2/CS:GO 资源 - Valve","「鳴謝名單」\n由 憨憨羊の宇航鴿鴿 製作\n\n「外部借物」\nCS:GO Case - artfreex\nEasingFunctions.cs - Kryzarel\nGDTask.Nuget - DE-YU\nSheepYhangCN.RandomExtension - 憨憨羊の宇航鴿鴿\nGodot Engine - Juan Linietsky, Ariel Manzur 和貢獻者們\n.NET SDK - Microsoft\nVisual Studio Code - Microsoft\nNoto Sans CJK - Google\n\nCS2/CS:GO 資源 - Valve"

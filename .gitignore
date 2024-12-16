@@ -1,0 +1,8 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+/local/
+./CaseLogo.json
+./CaseLogo.png
+./CaseLogo.png.import

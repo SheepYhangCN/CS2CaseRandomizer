@@ -1,0 +1,89 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="CS2 Case Randomizer"
+config/version="1.0.0"
+run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+AutoLoad="*res://AutoLoad.cs"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="CS2 Case Randomizer"
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": []
+}
+ui_select={
+"deadzone": 0.5,
+"events": []
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": []
+}
+ui_focus_next={
+"deadzone": 0.5,
+"events": []
+}
+ui_focus_prev={
+"deadzone": 0.5,
+"events": []
+}
+ui_left={
+"deadzone": 0.5,
+"events": []
+}
+ui_right={
+"deadzone": 0.5,
+"events": []
+}
+ui_up={
+"deadzone": 0.5,
+"events": []
+}
+ui_down={
+"deadzone": 0.5,
+"events": []
+}
+fullscreen={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+debug_reboot={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194332,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translation_remaps={
+"res://Assets/Fonts/NotoSans.otf": PackedStringArray("res://Assets/Fonts/NotoSansTC.otf:zh_TW")
+}
+locale/translations=PackedStringArray("res://Locale/loc.en.translation", "res://Locale/loc.zh_CN.translation", "res://Locale/loc.zh_TW.translation")

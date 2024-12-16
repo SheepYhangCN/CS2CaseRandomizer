@@ -1,0 +1,134 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq1skbyyp2o6j"]
+
+[ext_resource type="Script" path="res://UI/Settings.cs" id="1_8gcq0"]
+[ext_resource type="FontFile" uid="uid://tvmqd5r7ary5" path="res://Assets/Fonts/NotoSans.otf" id="1_qpka7"]
+
+[sub_resource type="Theme" id="Theme_nlfks"]
+default_font = ExtResource("1_qpka7")
+default_font_size = 48
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = SubResource("Theme_nlfks")
+script = ExtResource("1_8gcq0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "locCredits"
+
+[node name="Disclaimer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 203.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "locDisclaimer"
+vertical_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = " Github "
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+text = "locLanguage"
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "English"
+popup/item_1/text = "中文（简体）"
+popup/item_1/id = 1
+popup/item_2/text = "中文（繁體）"
+popup/item_2/id = 2
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+text = "locWindowMode"
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "locWindowed"
+popup/item_1/text = "locFullscreen"
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Import" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "locImport"
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "locBack"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.csv")
+use_native_dialog = true
+
+[connection signal="pressed" from="Button" to="." method="_on_github_pressed"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/HSplitContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/HSplitContainer2/OptionButton" to="." method="_on_option_button_window_item_selected"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Import" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="selected"]
