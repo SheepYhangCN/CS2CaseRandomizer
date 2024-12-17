@@ -16,9 +16,10 @@ public partial class Rolling : Control
 	bool over = false;
 	public override void _Ready()
 	{
-		speed_start = Mathf.RoundToInt(speed_base/(Engine.GetFramesPerSecond()/120));
+		var refreshrate = DisplayServer.ScreenGetRefreshRate(DisplayServer.WindowGetCurrentScreen());
+		speed_start = Mathf.RoundToInt(speed_base/(refreshrate/120));
 		speed = speed_start;
-		GD.Print("FPS: "+Engine.GetFramesPerSecond().ToString(),", Speed: "+speed.ToString());
+		GD.Print("Refresh Rate: "+refreshrate.ToString(),", Speed: "+speed.ToString());
 		var autoload = GetNode<AutoLoad>("/root/AutoLoad");
 		var random = new Random();
 		GetNode<RichTextLabel>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/UnlockCase").Text = "[center]"+TranslationServer.Translate("locUnlockCase").ToString().Replace("{Case}","[b]"+autoload.CaseName+"[/b]")+"[/center]";
