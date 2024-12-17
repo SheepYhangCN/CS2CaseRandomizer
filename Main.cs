@@ -50,6 +50,7 @@ public partial class Main : Control
 	public async void _on_unlock_pressed()
 	{
 		GetNode<Button>("MarginContainer/VBoxContainer/Bottom/Unlock").Disabled = true;
+		MoveChild(GetNode<Sprite2D>("Case"),GetNode<MarginContainer>("MarginContainer").GetIndex());
 		GetNode<AnimationPlayer>("Background/AnimationPlayer").Play("unlock");
 		await GDTask.Delay(100);
 		var player = new AudioStreamPlayer();
