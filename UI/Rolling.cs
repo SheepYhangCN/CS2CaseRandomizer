@@ -8,12 +8,17 @@ using GodotTask;
 public partial class Rolling : Control
 {
 	PackedScene item = GD.Load<PackedScene>("res://UI/ItemRoll.tscn");
+	static readonly int speed_base = 20;
+	int speed_start = 20;
 	int speed = 20;
 	double timer = 0;
 	double played = 0;
 	bool over = false;
 	public override void _Ready()
 	{
+		speed_start = Mathf.RoundToInt(speed_base/(Engine.GetFramesPerSecond()/120));
+		speed = speed_start;
+		GD.Print("FPS: "+Engine.GetFramesPerSecond().ToString(),", Speed: "+speed.ToString());
 		var autoload = GetNode<AutoLoad>("/root/AutoLoad");
 		var random = new Random();
 		GetNode<RichTextLabel>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/UnlockCase").Text = "[center]"+TranslationServer.Translate("locUnlockCase").ToString().Replace("{Case}","[b]"+autoload.CaseName+"[/b]")+"[/center]";
@@ -36,7 +41,7 @@ public partial class Rolling : Control
 		}
 		var scroll = GetNode<ScrollContainer>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer");
 		scroll.ScrollHorizontal += speed;
-		speed = Math.Clamp(Mathf.RoundToInt(20 - 20 * EasingFunctions.OutCubic((float)((timer-3d)/4d))),0,20);
+		speed = Math.Clamp(Mathf.RoundToInt(speed_start - speed_start * EasingFunctions.OutCubic((float)((timer-3d)/4d))),0,speed_start);
 		foreach (var i in GetNode<HBoxContainer>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/HBoxContainer").GetChildren())
 		{
 			if (i is ItemRoll item && item.GlobalPosition.X <= 0 && !item.audioed)
