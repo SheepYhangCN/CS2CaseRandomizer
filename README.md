@@ -1,4 +1,5 @@
 # CS2 Case Randomizer
+![Screenshot](./Screenshot.png)
 A random chooser with CS2 case unlock theme<br>
 Made with Godot Engine 4 .NET 8
 
