@@ -4,6 +4,7 @@ using SheepYhangCN.RandomExtension;
 using System.Linq;
 using Kryz.Tweening;
 using GodotTask;
+using Godot.Collections;
 
 public partial class Rolling : Control
 {
@@ -19,7 +20,7 @@ public partial class Rolling : Control
 		var refreshrate = DisplayServer.ScreenGetRefreshRate(DisplayServer.WindowGetCurrentScreen());
 		speed_start = Mathf.RoundToInt(speed_base/(refreshrate/120));
 		speed = speed_start;
-		GD.Print("Refresh Rate: "+refreshrate.ToString(),", Speed: "+speed.ToString());
+		//GD.Print("Refresh Rate: "+refreshrate.ToString(),", Speed: "+speed.ToString());
 		var autoload = GetNode<AutoLoad>("/root/AutoLoad");
 		var random = new Random();
 		GetNode<RichTextLabel>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/UnlockCase").Text = "[center]"+TranslationServer.Translate("locUnlockCase").ToString().Replace("{Case}","[b]"+autoload.CaseName+"[/b]")+"[/center]";
@@ -52,30 +53,80 @@ public partial class Rolling : Control
 			}
 		}
 		string name = null;
+		//Array<ItemRoll> results = [];
+		ItemRoll nearest = null;
 		if (speed <= 0 && !over)
 		{
 			over = true;
-			foreach (var i in GetNode<HBoxContainer>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/HBoxContainer").GetChildren())
+			/*foreach (var i in GetNode<HBoxContainer>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/HBoxContainer").GetChildren())
 			{
 				if (i is ItemRoll item && item.GlobalPosition.X <= 960 && item.GlobalPosition.X >= 960-320)
 				{
 					GD.Print("First success: "+item.name+" "+item.GlobalPosition.X.ToString());
-					name = item.name;
-					break;
+					results.Append(item);
+					//name = item.name;
+					//break;
 				}
 			}
-			if (name == null)
+			if (results.Count == 1)
+			{
+				name = results[0].name;
+			}
+			else
+			{
+				foreach (var i in results)
+				{
+					if (nearest == null || Math.Abs(i.GlobalPosition.X - 640) < Math.Abs(nearest.GlobalPosition.X - 640))
+					{
+						nearest = i;
+					}
+				}
+				name = nearest.name;
+			}
+			if (results.Count == 0)
 			{
 				foreach (var i in GetNode<HBoxContainer>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/HBoxContainer").GetChildren())
 				{
 					if (i is ItemRoll item && item.GlobalPosition.X <= 960+16 && item.GlobalPosition.X >= 960-320-16)
 					{
 						GD.Print("Second success: "+item.name+" "+item.GlobalPosition.X.ToString());
-						name = item.name;
-						break;
+						results.Append(item);
+						//name = item.name;
+						//break;
+					}
+				}
+				if (results.Count == 1)
+				{
+					name = results[0].name;
+				}
+				else
+				{
+					nearest = null;
+					foreach (var i in results)
+					{
+						if (i is ItemRoll ii && (nearest == null || Math.Abs(ii.GlobalPosition.X - 640) < Math.Abs(nearest.GlobalPosition.X - 640)))
+						{
+							nearest = i;
+						}
+					}
+					name = nearest.name;
+				}
+			}*/
+			foreach (var i in GetNode<HBoxContainer>("SubViewportContainer/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/HBoxContainer").GetChildren())
+			{
+				if (i is ItemRoll ii)
+				{
+					if (nearest == null || Math.Abs(ii.GlobalPosition.X - 640) < Math.Abs(nearest.GlobalPosition.X - 640))
+					{
+						nearest = ii;
+					}
+					else if (Math.Abs(ii.GlobalPosition.X - 640) == Math.Abs(nearest.GlobalPosition.X - 640))
+					{
+						nearest = new Random().FiftyFifty(nearest,ii);
 					}
 				}
 			}
+			name = nearest.name;
 			await GDTask.Delay(100);
 			var autoload = GetNode<AutoLoad>("/root/AutoLoad");
 			var result = GD.Load<PackedScene>("res://UI/Result.tscn").Instantiate<Result>();
