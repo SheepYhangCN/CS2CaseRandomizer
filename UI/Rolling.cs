@@ -116,11 +116,11 @@ public partial class Rolling : Control
 			{
 				if (i is ItemRoll ii)
 				{
-					if (nearest == null || Math.Abs(ii.GlobalPosition.X - 640) < Math.Abs(nearest.GlobalPosition.X - 640))
+					if (nearest == null || Math.Abs(ii.GlobalPosition.X - 800) < Math.Abs(nearest.GlobalPosition.X - 800))
 					{
 						nearest = ii;
 					}
-					else if (Math.Abs(ii.GlobalPosition.X - 640) == Math.Abs(nearest.GlobalPosition.X - 640))
+					else if (Math.Abs(ii.GlobalPosition.X - 800) == Math.Abs(nearest.GlobalPosition.X - 800))
 					{
 						nearest = new Random().FiftyFifty(nearest,ii);
 					}
