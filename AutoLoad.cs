@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using Godot.Collections;
 
@@ -75,6 +76,7 @@ public partial class AutoLoad : Node
 			DisplayServer.WindowSetMode((DisplayServer.WindowMode)(cfg.GetValue("Settings","WindowMode",(int)DisplayServer.WindowMode.Windowed).AsInt32()));
 			CaseItemList = LoadToItems("user://Case.csv",true);
 		}
+		Engine.MaxFps = Mathf.CeilToInt(DisplayServer.ScreenGetRefreshRate(DisplayServer.WindowGetCurrentScreen()));
 	}
 
 	public override void _Process(double delta)

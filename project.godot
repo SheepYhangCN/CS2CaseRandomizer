@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="CS2 Case Randomizer"
-config/version="1.0.0"
+config/version="1.0.1"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://local/icon.png"
+config/icon="res://icon.png"
 
 [autoload]
 
