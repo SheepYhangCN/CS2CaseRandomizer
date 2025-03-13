@@ -30,7 +30,7 @@ public partial class Settings : Control
 		var cfg = new ConfigFile();
 		cfg.SetValue("Settings","Language",lang);
 		cfg.SetValue("Settings","CaseName",GetNode<AutoLoad>("/root/AutoLoad").CaseName);
-		cfg.SetValue("Settings","WindowMode",(int)DisplayServer.WindowMode.Windowed);
+		cfg.SetValue("Settings","WindowMode",(int)DisplayServer.WindowGetMode());
 		cfg.Save("user://Settings.ini");
 		TranslationServer.SetLocale(lang);
 		//QueueFree();
