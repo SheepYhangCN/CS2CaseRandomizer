@@ -73,6 +73,7 @@ layout_mode = 2
 
 [node name="HSplitContainer" type="HSplitContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+dragging_enabled = false
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HSplitContainer"]
 layout_mode = 2
@@ -91,6 +92,7 @@ popup/item_2/id = 2
 
 [node name="HSplitContainer2" type="HSplitContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+dragging_enabled = false
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HSplitContainer2"]
 layout_mode = 2
