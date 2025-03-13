@@ -213,7 +213,7 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 libraries = {
-"": SubResource("AnimationLibrary_asbub")
+&"": SubResource("AnimationLibrary_asbub")
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Background"]
