@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dnhj8cm3y0ysy"]
 
 [ext_resource type="FontFile" uid="uid://tvmqd5r7ary5" path="res://Assets/Fonts/NotoSans.otf" id="1_446lg"]
-[ext_resource type="Script" path="res://UI/Rolling.cs" id="1_kftra"]
+[ext_resource type="Script" uid="uid://3ovic0ugtk8p" path="res://UI/Rolling.cs" id="1_kftra"]
 [ext_resource type="AudioStream" uid="uid://b6c6cec76ehp7" path="res://Assets/Sounds/case_scroll.wav" id="3_2qa2a"]
 [ext_resource type="Texture2D" uid="uid://5u53dbctsis4" path="res://Assets/Textures/Round.png" id="3_63q8e"]
 
@@ -48,8 +48,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_igcha"]
 _data = {
-"RESET": SubResource("Animation_8np4w"),
-"fade_in": SubResource("Animation_oj5rj")
+&"RESET": SubResource("Animation_8np4w"),
+&"fade_in": SubResource("Animation_oj5rj")
 }
 
 [node name="Rolling" type="Control"]

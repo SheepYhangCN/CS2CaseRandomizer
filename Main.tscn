@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://45gsa6eerkch"]
 
-[ext_resource type="VideoStream" path="res://Assets/bg-nuke.ogv" id="1_h4h0u"]
-[ext_resource type="Script" path="res://Main.cs" id="1_j2nqn"]
+[ext_resource type="VideoStream" uid="uid://t3ywqxntx32x" path="res://Assets/bg-nuke.ogv" id="1_h4h0u"]
+[ext_resource type="Script" uid="uid://cvwmq1hs2l8ml" path="res://Main.cs" id="1_j2nqn"]
 [ext_resource type="FontFile" uid="uid://tvmqd5r7ary5" path="res://Assets/Fonts/NotoSans.otf" id="3_v6amo"]
 [ext_resource type="AudioStream" uid="uid://bi6imh0y0q2q8" path="res://Assets/Sounds/case_drop.wav" id="4_ho10y"]
 [ext_resource type="PackedScene" uid="uid://bfqm6x8v3tbfg" path="res://Assets/Models/Case/Body.tscn" id="4_m4oej"]
@@ -46,8 +46,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_asbub"]
 _data = {
-"RESET": SubResource("Animation_i7pta"),
-"unlock": ExtResource("8_2wpke")
+&"RESET": SubResource("Animation_i7pta"),
+&"unlock": ExtResource("8_2wpke")
 }
 
 [sub_resource type="Environment" id="Environment_lpbpn"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq1skbyyp2o6j"]
 
-[ext_resource type="Script" path="res://UI/Settings.cs" id="1_8gcq0"]
+[ext_resource type="Script" uid="uid://dfw4w168uu2by" path="res://UI/Settings.cs" id="1_8gcq0"]
 [ext_resource type="FontFile" uid="uid://tvmqd5r7ary5" path="res://Assets/Fonts/NotoSans.otf" id="1_qpka7"]
 
 [sub_resource type="Theme" id="Theme_nlfks"]
@@ -83,6 +83,7 @@ layout_mode = 2
 selected = 0
 item_count = 3
 popup/item_0/text = "English"
+popup/item_0/id = 0
 popup/item_1/text = "中文（简体）"
 popup/item_1/id = 1
 popup/item_2/text = "中文（繁體）"
@@ -100,6 +101,7 @@ layout_mode = 2
 selected = 0
 item_count = 2
 popup/item_0/text = "locWindowed"
+popup/item_0/id = 0
 popup/item_1/text = "locFullscreen"
 popup/item_1/id = 1
 

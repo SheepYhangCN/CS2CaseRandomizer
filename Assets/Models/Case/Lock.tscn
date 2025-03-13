@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=4 uid="uid://c2ccdpbqaoodb"]
 
-[ext_resource type="Texture2D" uid="uid://bn8ygcnkurjm8" path="res://Models/Case/textures/CSGO_Case_Top_baseColor.jpeg" id="1_ugryo"]
-[ext_resource type="Texture2D" uid="uid://cfs8oyqx5qjtd" path="res://Models/Case/textures/CSGO_Case_Top_metallicRoughness.png" id="2_tfq40"]
-[ext_resource type="Texture2D" uid="uid://dmlo3qa66xuyn" path="res://Models/Case/textures/CSGO_Case_Top_normal.png" id="3_nga7u"]
+[ext_resource type="Texture2D" uid="uid://bn8ygcnkurjm8" path="res://Assets/Models/Case/textures/CSGO_Case_Top_baseColor.jpeg" id="1_ugryo"]
+[ext_resource type="Texture2D" uid="uid://cfs8oyqx5qjtd" path="res://Assets/Models/Case/textures/CSGO_Case_Top_metallicRoughness.png" id="2_tfq40"]
+[ext_resource type="Texture2D" uid="uid://dmlo3qa66xuyn" path="res://Assets/Models/Case/textures/CSGO_Case_Top_normal.png" id="3_nga7u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p07xj"]
 resource_name = "CSGO_Case_Top"

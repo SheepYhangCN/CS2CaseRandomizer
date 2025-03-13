@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=4 uid="uid://bfqm6x8v3tbfg"]
 
-[ext_resource type="Texture2D" uid="uid://dad8g1hhdxi35" path="res://Models/Case/textures/CSGO_Case_Btm_baseColor.jpeg" id="1_q7voo"]
-[ext_resource type="Texture2D" uid="uid://bqdxha4cmbjup" path="res://Models/Case/textures/CSGO_Case_Btm_metallicRoughness.png" id="2_f2noo"]
-[ext_resource type="Texture2D" uid="uid://chomyqcff2xe" path="res://Models/Case/textures/CSGO_Case_Btm_normal.png" id="3_8uu5a"]
+[ext_resource type="Texture2D" uid="uid://dad8g1hhdxi35" path="res://Assets/Models/Case/textures/CSGO_Case_Btm_baseColor.jpeg" id="1_q7voo"]
+[ext_resource type="Texture2D" uid="uid://bqdxha4cmbjup" path="res://Assets/Models/Case/textures/CSGO_Case_Btm_metallicRoughness.png" id="2_f2noo"]
+[ext_resource type="Texture2D" uid="uid://chomyqcff2xe" path="res://Assets/Models/Case/textures/CSGO_Case_Btm_normal.png" id="3_8uu5a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2q02"]
 resource_name = "CSGO_Case_Btm"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://44vnskyg4qaf"]
 
 [ext_resource type="FontFile" uid="uid://tvmqd5r7ary5" path="res://Assets/Fonts/NotoSans.otf" id="1_toesm"]
-[ext_resource type="Script" path="res://UI/ItemShown.cs" id="2_8t7jk"]
+[ext_resource type="Script" uid="uid://1skqx8bbl2du" path="res://UI/ItemShown.cs" id="2_8t7jk"]
 [ext_resource type="Texture2D" uid="uid://dfgmcooxx8gye" path="res://Assets/Textures/ItemBg.png" id="2_j48jl"]
 [ext_resource type="Texture2D" uid="uid://bdwri7pewlu8b" path="res://Assets/Textures/RareSpecialItem.png" id="4_k6w6l"]
 
